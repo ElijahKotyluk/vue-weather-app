@@ -1,0 +1,11 @@
+{
+  "name": "vue-weather-app",
+  "version": "1.0.0",
+  "description": "Displays current weather & 5 day forecast based on geolocation. Created with Vue, OpenWeatherMaps API, & Javascript.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Elijah Kotyluk",
+  "license": "ISC"
+}
