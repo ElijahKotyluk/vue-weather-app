@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import App from '~/components/App.vue'
+import App from '@/javascript/components/App.vue'
 
 var app = new Vue({
   el: '#app',
