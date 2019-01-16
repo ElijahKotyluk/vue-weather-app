@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <v-app>
     <h1 :title="title">{{ this.title }}</h1>
-  </div>
+  </v-app>
 </template>
 
 <script>
