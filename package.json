@@ -4,7 +4,7 @@
   "description": "Displays current weather & 5 day forecast based on geolocation. Created with Vue, OpenWeatherMaps API, & Javascript.",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack"
+    "dev": "webpack-dev-server --mode development --progress --open"
   },
   "author": "Elijah Kotyluk",
   "license": "ISC",
@@ -15,9 +15,13 @@
     "vuetify": "^1.4.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "babel-loader": "^8.0.5",
     "css-loader": "^2.1.0",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "node-sass": "^4.11.0",
+    "nodemon": "^1.18.9",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "vue-template-compiler": "^2.5.22",
