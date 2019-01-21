@@ -9,6 +9,12 @@
     :tempHigh="this.forecast.tempHigh"
     :tempLow="this.forecast.tempLow">
     </Temperature>
+    <Forecast
+    :cloudCover="this.forecast.cloudCover"
+    :windSpeed="this.forecast.windSpeed"
+    :windDirection="this.forecast.windDirection"
+    :humidity="this.forecast.humidity">
+    </Forecast>
   </v-container>
 </template>
 
@@ -16,6 +22,7 @@
 import WeatherForecast from '../services/WeatherForecast';
 import Weather from './Weather.vue';
 import Temperature from './Temperature.vue';
+import Forecast from './Forecast.vue';
 
 export default {
   name: 'WeatherApp',
@@ -26,7 +33,8 @@ export default {
   },
   components: {
     Weather,
-    Temperature
+    Temperature,
+    Forecast
   }
 }
 </script>
