@@ -94,9 +94,7 @@ class WeatherForecast {
 
   /*
   * Format location.
-  *
-  * @param {String} city - Current city.
-  * @param {String} country - Current country.
+  * @param {String} city - Current city / @param {String} country - Current country.
   */
   formatLocation(city, country) {
       if (city === null && country === null) {
