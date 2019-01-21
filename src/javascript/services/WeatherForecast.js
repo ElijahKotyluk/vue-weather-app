@@ -3,6 +3,9 @@
 * the user's current location from openweathermap.org.
 */
 
+// Require environment variables
+require('dotenv').config()
+
 // Get weather forecast instance.
 class WeatherForecast {
   constructor() {
@@ -44,7 +47,7 @@ class WeatherForecast {
 
   // fetch data from openweatherapi.
   async getForecast(coordinates) {
-    let appId = '932c95dd5f339bedd5309b0ef65ab28a'
+    let appId = process.env.OPEN_WEATHER_KEY
     let endpoint = `https://api.openweathermap.org/data/2.5/weather?lat=${coordinates.latitude}&lon=${coordinates.longitude}&appid=${appId}&units=metric`
 
     let response = await fetch(endpoint)

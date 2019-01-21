@@ -2,6 +2,7 @@
 const path = require('path')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   entry: [
@@ -12,6 +13,9 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'index.bundle.js'
+  },
+  node: {
+   fs: "empty"
   },
   devServer: {
     port: 8080,
@@ -54,6 +58,7 @@ module.exports = {
       filename: 'index.bundle.css',
       allChunks: true
   }),
-    new VueLoaderPlugin()
+    new VueLoaderPlugin(),
+    new Dotenv()
   ]
 }
