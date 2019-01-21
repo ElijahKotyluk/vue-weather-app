@@ -49,7 +49,7 @@ class WeatherForecast {
 
     let response = await fetch(endpoint)
 
-    return away response.json()
+    return await response.json()
   }
 
   // Populate data incase of error.
@@ -83,7 +83,7 @@ class WeatherForecast {
   populate(data) {
     this.cloudCover = data.clouds.all;
     this.windSpeed = data.wind.speed;
-    this.windDirection = data.wind.direction.deg;
+    this.windDirection = data.wind.deg;
     this.humidity = data.main.humidity;
     this.temperature = data.main.temp;
     this.tempHigh = data.main.temp_max;
@@ -91,4 +91,20 @@ class WeatherForecast {
     this.location = this.formatLocation(data.name, data.sys.country);
     this.description = data.weather[0].description;
   }
+
+  /*
+  * Format location.
+  *
+  * @param {String} city - Current city.
+  * @param {String} country - Current country.
+  */
+  formatLocation(city, country) {
+      if (city === null && country === null) {
+          return '';
+      }
+
+      return `${city}, ${country}`;
+  }
 }
+
+export default WeatherForecast;

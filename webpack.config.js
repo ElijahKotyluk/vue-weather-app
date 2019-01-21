@@ -5,6 +5,7 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 module.exports = {
   entry: [
+    '@babel/polyfill',
     './src/javascript/index.js',
     './src/scss/index.scss'
   ],
@@ -13,6 +14,7 @@ module.exports = {
     filename: 'index.bundle.js'
   },
   devServer: {
+    port: 8080,
     contentBase: path.join(__dirname, 'public'),
     disableHostCheck: true
   },

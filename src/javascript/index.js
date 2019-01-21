@@ -1,4 +1,5 @@
 // Import libraries and root vue component.
+import "@babel/polyfill";
 import Vue from 'vue'
 import Vuetify from 'vuetify'
 import App from '@/javascript/components/App.vue'
