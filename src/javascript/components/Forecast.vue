@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container class="text-xs-center">
     <p>{{ cloudCover }}</p>
     <p>{{ windSpeed }}</p>
     <p>{{ windDirection }}</p>

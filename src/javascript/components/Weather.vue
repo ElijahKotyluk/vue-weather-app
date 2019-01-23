@@ -1,5 +1,6 @@
 <template>
-  <v-container>
+  <v-container
+  class="text-xs-center">
     <v-layout
       column
       justify-center>

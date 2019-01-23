@@ -1,20 +1,22 @@
 <template>
   <v-container>
-    <Weather
-    :location="this.forecast.location"
-    :description="this.forecast.description">
-    </Weather>
-    <Temperature
-    :temp="this.forecast.temperature"
-    :tempHigh="this.forecast.tempHigh"
-    :tempLow="this.forecast.tempLow">
-    </Temperature>
-    <Forecast
-    :cloudCover="this.forecast.cloudCover"
-    :windSpeed="this.forecast.windSpeed"
-    :windDirection="this.forecast.windDirection"
-    :humidity="this.forecast.humidity">
-    </Forecast>
+    <v-card>
+      <Weather
+      :location="this.forecast.location"
+      :description="this.forecast.description">
+      </Weather>
+      <Temperature
+      :temp="this.forecast.temperature"
+      :tempHigh="this.forecast.tempHigh"
+      :tempLow="this.forecast.tempLow">
+      </Temperature>
+      <Forecast
+      :cloudCover="this.forecast.cloudCover"
+      :windSpeed="this.forecast.windSpeed"
+      :windDirection="this.forecast.windDirection"
+      :humidity="this.forecast.humidity">
+      </Forecast>
+    </v-card>
   </v-container>
 </template>
 

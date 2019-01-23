@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container class="text-xs-center">
     <p>{{ temp }}</p>
     <p>{{ tempHigh }}</p>
     <p>{{ tempLow }}</p>
