@@ -1,7 +1,7 @@
 <template>
   <v-app>
-    <v-toolbar>
-      <h1 class="text-xs-center" :title="title">{{ this.title }}</h1>
+    <v-toolbar class="text-xs-center align-center">
+      <v-toolbar-title class="blue--text" :title="title">{{ this.title }}</v-toolbar-title>
     </v-toolbar>
 
     <WeatherApp></WeatherApp>

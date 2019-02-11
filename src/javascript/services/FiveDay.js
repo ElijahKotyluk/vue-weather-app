@@ -7,3 +7,8 @@
 require('dotenv').config()
 
 // Get weather forecast instance.
+class FiveDayForecast {
+  constructor () {
+    
+  }
+}
