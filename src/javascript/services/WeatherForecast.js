@@ -1,7 +1,6 @@
-/*
-* WeatherForecast is a service that will fetch the weather data of
-* the user's current location from openweathermap.org.
-*/
+
+// WeatherForecast is a service that will fetch weather data based
+// on the user's current location, from OpenWeatherMap.org.
 
 // Require environment variables
 require('dotenv').config()
@@ -31,8 +30,7 @@ class WeatherForecast {
     }
   }
 
-  // @param {Object} position - Lat & lon coordinates object.
-  // Update forecast from current coordinates.
+  //  @param {Object} position - Lat & lon coordinates object.
   async updateForecast(position) {
     let data = null;
 
@@ -47,12 +45,12 @@ class WeatherForecast {
 
   // fetch data from openweatherapi.
   async getForecast(coordinates) {
-    let appId = process.env.OPEN_WEATHER_KEY
-    let endpoint = `https://api.openweathermap.org/data/2.5/weather?lat=${coordinates.latitude}&lon=${coordinates.longitude}&appid=${appId}&units=metric`
+    let appId = process.env.OPEN_WEATHER_KEY;
+    let endpoint = `https://api.openweathermap.org/data/2.5/weather?lat=${coordinates.latitude}&lon=${coordinates.longitude}&appid=${appId}&units=metric`;
 
-    let response = await fetch(endpoint)
+    let response = await fetch(endpoint);
 
-    return await response.json()
+    return await response.json();
   }
 
   // Populate data incase of error.
@@ -93,19 +91,53 @@ class WeatherForecast {
     this.tempLow = data.main.temp_min;
     this.location = this.formatLocation(data.name, data.sys.country);
     this.description = data.weather[0].description;
-  }
+  };
 
-  /*
-  * Format location.
-  * @param {String} city - Current city / @param {String} country - Current country.
-  */
+
+  // @param {String} city - Current city / @param {String} country - Current country.
   formatLocation(city, country) {
       if (city === null && country === null) {
           return '';
-      }
+      };
 
       return `${city}, ${country}`;
+  };
+
+  // @param {Number} id - Weather ID.
+  getWeatherIcon(id) {
+      if(this.isThunderstorm(id)) {
+          return require('public/icons/weather/thunderstorm.svg');
+      }
+
+      if(this.isDrizzle(id) || this.isRain(id)) {
+          return require('public/icons/weather/rain.svg');
+      }
+
+      if(this.isSnow(id)) {
+          return require('public/icons/weather/snow.svg');
+      }
+
+      return require('public/icons/weather/cloud.svg');
   }
+
+  // @param {Number} id - WeatherID.
+  isThunderstorm(id) {
+    return id > 199 && id < 233
+  }
+  // @param {Number} id - Weather ID.
+  isDrizzle(id) {
+      return id > 299 && id < 322;
+  };
+
+  // @param {Number} id - Weather ID.
+  isRain(id) {
+      return id > 499 && id < 532;
+  };
+
+  // @param {Number} id - Weather ID.
+  isSnow(id) {
+      return id > 599 && id < 623;
+  };
 }
 
 export default WeatherForecast;

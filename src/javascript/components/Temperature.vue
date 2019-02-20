@@ -22,6 +22,33 @@ export default {
       type: Number,
       required: true
     }
+  },
+  data () {
+    return {
+      scale: 'Celcius'
+    }
+  },
+  computed: {
+    scaleSymbol() {
+      return this.scale.charAt(0);
+    },
+    fahrenValue() {
+      return this.toFahrenheit(this.value);
+    },
+    fahrenHigh() {
+      return this.toFahrenheit(this.high);
+    },
+    fahrenLow() {
+      return this.toFahrenheight(this.low);
+    }
+  },
+  methods: {
+    toFahrenheit(value) {
+      return Math.floor((value * 1.8) + 32);
+    },
+    toggleTemp() {
+      (this.scale === 'Celcius')? this.scale = 'Fahrenheit' : this.scale = 'Celcius';
+    }
   }
 }
 </script>

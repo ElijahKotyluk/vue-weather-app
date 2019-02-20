@@ -43,6 +43,10 @@ module.exports = {
         use: {
         loader: 'babel-loader'
         }
+      },
+      {
+        test: /\.svg$/,
+        loader: 'vue-svg-loader',
       }
     ]
   },
@@ -50,7 +54,8 @@ module.exports = {
     alias: {
       vue: 'vue/dist/vue.js',
       '@': path.resolve(__dirname, 'src'),
-      styles: path.resolve(__dirname, 'src', 'styles')
+      styles: path.resolve(__dirname, 'src', 'styles'),
+      public: path.resolve(__dirname, 'public')
     }
   },
   plugins: [

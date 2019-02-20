@@ -1,7 +1,7 @@
 {
   "name": "vue-weather-app",
   "version": "1.0.0",
-  "description": "Displays current weather & 5 day forecast based on geolocation. Created with Vue, OpenWeatherMaps API, & Javascript.",
+  "description": "Displays current weatherforecast based on geolocation. Created with Vue, OpenWeatherMaps API, & Javascript.",
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --mode development --progress --open"
@@ -13,7 +13,6 @@
     "dotenv": "^6.2.0",
     "dotenv-webpack": "^1.7.0",
     "vue": "^2.5.21",
-    "vue-loader": "^15.5.1",
     "vuetify": "^1.4.1"
   },
   "devDependencies": {
@@ -27,9 +26,11 @@
     "nodemon": "^1.18.9",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
-    "vue-template-compiler": "^2.5.22",
+    "vue-svg-loader": "^0.12.0",
+    "vue-template-compiler": "^2.6.6",
     "webpack": "^4.28.4",
     "webpack-cli": "^3.2.1",
-    "webpack-dev-server": "^3.1.14"
+    "webpack-dev-server": "^3.1.14",
+    "vue-loader": "^15.5.1"
   }
 }
