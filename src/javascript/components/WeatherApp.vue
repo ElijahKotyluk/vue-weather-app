@@ -1,23 +1,32 @@
 <template>
   <v-container>
-    <v-card
-    color="blue-grey">
-      <Cloud />
-      {{ this.forecast.cloudCover }}%
-      <Wind />
-      {{ this.forecast.windSpeed }}
-      <Humidity />
-      {{ this.forecast.humidity }}
+    <v-card class="text-xs-center"
+            color="blue-grey"
+            width="60%">
 
-      {{ this.forecast.temperature }}
-      <temp-high />
-      {{ this.forecast.tempHigh }}
-      <temp-low />
-      {{ this.forecast.tempLow }}
+      <div class="row">
+        <Cloud class="forecast-icon" />
+        {{ this.forecast.cloudCover }}%
 
+        <Wind class="forecast-icon" />
+        {{ this.forecast.windSpeed }}
 
-      {{ this.forecast.description }}
-      {{ this.forecast.location }}
+        <Humidity class="forecast-icon" />
+        {{ this.forecast.humidity }}
+      </div>
+
+      <div class="row">
+        {{ this.forecast.temperature }}
+        <temp-high />
+        {{ this.forecast.tempHigh }}
+        <temp-low />
+        {{ this.forecast.tempLow }}
+      </div>
+
+      <div class="row">
+        {{ this.forecast.description }}
+        {{ this.forecast.location }}
+      </div>
     </v-card>
   </v-container>
 </template>
@@ -35,7 +44,7 @@ export default {
   data () {
     return {
       forecast: new WeatherForecast,
-      scale: 'Celcius'
+      celcius: true
     }
   },
   components: {
@@ -64,8 +73,22 @@ export default {
       return Math.floor((value * 1.8) + 32);
     },
     toggleFahr() {
+      // If this.celcius is true blah blah ternary maybes
       (this.scale === 'Celcius')? this.scale = 'Fahrenheight' : this.scale = 'Celcius';
     }
   }
 }
 </script>
+
+<style lang="scss">
+
+.row {
+  width: 100%;
+  display: inline-block;
+}
+
+svg.forecast-icon {
+  height: 5em;
+  width: 5em;
+}
+</style>
