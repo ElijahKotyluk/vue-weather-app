@@ -1,81 +1,46 @@
 <template>
-  <v-container>
-    <v-card class="text-xs-center"
-            color="blue-grey"
-            width="60%">
+  <v-container fill-height fluid>
+    <v-layout row align-center>
+      <v-flex class="text-xs-center" offset-xs4>
+        <v-card class="text-xs-center"
+                color="blue-grey"
+                elevation="8"
+                width="50%">
 
-      <div class="row">
-        <Cloud class="forecast-icon" />
-        {{ this.forecast.cloudCover }}%
+          <forecast :cloudCover="this.forecast.cloudCover"
+                    :windSpeed="this.forecast.windSpeed"
+                    :humidity="this.forecast.humidity" />
 
-        <Wind class="forecast-icon" />
-        {{ this.forecast.windSpeed }}
+          <temperature :temperature="this.forecast.temperature"
+                       :tempHigh="this.forecast.tempHigh"
+                       :tempLow="this.forecast.tempLow" />
 
-        <Humidity class="forecast-icon" />
-        {{ this.forecast.humidity }}
-      </div>
+          <weather-details />
 
-      <div class="row">
-        {{ this.forecast.temperature }}
-        <temp-high />
-        {{ this.forecast.tempHigh }}
-        <temp-low />
-        {{ this.forecast.tempLow }}
-      </div>
-
-      <div class="row">
-        {{ this.forecast.description }}
-        {{ this.forecast.location }}
-      </div>
-    </v-card>
+        </v-card>
+      </v-flex>
+    </v-layout>
   </v-container>
 </template>
 
 <script>
 import WeatherForecast from '../services/WeatherForecast';
-import Cloud from 'public/icons/cloud.svg';
-import Humidity from 'public/icons/humidity.svg';
-import TempHigh from 'public/icons/temphigh.svg';
-import TempLow from 'public/icons/templow.svg';
-import Wind from 'public/icons/wind.svg';
+
+import Forecast from './Forecast.vue';
+import Temperature from './Temperature.vue';
+import WeatherDetails from './WeatherDetails.vue';
 
 export default {
   name: 'WeatherApp',
   data () {
     return {
-      forecast: new WeatherForecast,
-      celcius: true
+      forecast: new WeatherForecast
     }
   },
   components: {
-    Cloud,
-    Humidity,
-    TempHigh,
-    TempLow,
-    Wind
-  },
-  computed: {
-    scaleSymbol() {
-      return this.scale.charAt(0);
-    },
-    fahrenheitValue() {
-      return this.toFahrenheit(this.temp);
-    },
-    fahrenHigh() {
-      return this.toFahrenheight(this.tempHigh);
-    },
-    fahrenLow() {
-      return this.toFahrenheight(this.tempLow);
-    }
-  },
-  methods: {
-    toFahrenheight(value) {
-      return Math.floor((value * 1.8) + 32);
-    },
-    toggleFahr() {
-      // If this.celcius is true blah blah ternary maybes
-      (this.scale === 'Celcius')? this.scale = 'Fahrenheight' : this.scale = 'Celcius';
-    }
+    Forecast,
+    Temperature,
+    WeatherDetails
   }
 }
 </script>

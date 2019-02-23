@@ -1,10 +1,14 @@
 <template>
   <v-app>
-    <v-toolbar class="text-xs-center align-center">
-      <v-toolbar-title class="blue--text" :title="title">{{ this.title }}</v-toolbar-title>
+    <v-toolbar text-xs-center>
+      <p class="blue--text display-1" :title="title">
+        {{ this.title }}
+      </p>
     </v-toolbar>
 
-    <WeatherApp></WeatherApp>
+    <v-content>
+      <WeatherApp></WeatherApp>
+    </v-content>
   </v-app>
 </template>
 

@@ -1,16 +1,38 @@
 <template>
-  <v-container class="text-xs-center">
-    <p>{{ temp }}</p>
-    <p>{{ tempHigh }}</p>
-    <p>{{ tempLow }}</p>
+  <v-container fill-heigh text-xs-center >
+    <v-layout row align-center>
+
+      <v-flex xs6 text-xs-right>
+        <p class="headline">
+          {{ temperature }}&deg;
+        </p>
+      </v-flex>
+
+      <v-flex xs6 text-xs-left>
+        
+        <temp-high />
+        <p class="subheading">
+          {{ tempHigh }}&deg;
+        </p>
+
+        <temp-low />
+        <p class="subheading">
+          {{ tempLow }}&deg;
+        </p>
+      </v-flex>
+
+    </v-layout>
   </v-container>
 </template>
 
 <script>
+import TempHigh from 'public/icons/temphigh.svg';
+import TempLow from 'public/icons/templow.svg';
+
 export default {
   name: 'Temperature',
   props : {
-    temp: {
+    temperature: {
       type: Number,
       required: true
     },
@@ -49,6 +71,10 @@ export default {
     toggleTemp() {
       (this.scale === 'Celcius')? this.scale = 'Fahrenheit' : this.scale = 'Celcius';
     }
+  },
+  components: {
+    TempHigh,
+    TempLow
   }
 }
 </script>

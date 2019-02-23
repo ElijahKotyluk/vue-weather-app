@@ -1,13 +1,33 @@
 <template>
-  <v-container class="text-xs-center">
-    <p>{{ cloudCover }}</p>
-    <p>{{ windSpeed }}</p>
-    <p>{{ windDirection }}</p>
-    <p>{{ humidity }}</p>
+  <v-container>
+    <v-layout row justify-space-around>
+     <v-flex xs3>
+       <cloud-cover class="forecast-icon" />
+       <span class="headline">
+         {{ cloudCover }}&percnt;
+       </span>
+     </v-flex>
+     <v-flex xs5>
+       <wind class="forecast-icon" />
+       <span class="headline">
+         {{ windSpeed }}m/s
+       </span>
+     </v-flex>
+     <v-flex xs3>
+       <humidity class="forecast-icon" />
+       <span class="headline">
+         {{ humidity }}&percnt;
+       </span>
+     </v-flex>
+    </v-layout>
   </v-container>
 </template>
 
 <script>
+import CloudCover from 'public/icons/cloudcover.svg';
+import Humidity from 'public/icons/humidity.svg';
+import Wind from 'public/icons/wind.svg';
+
 export default {
   name: 'Forecast',
   props: {
@@ -20,13 +40,18 @@ export default {
       required: true
     },
     windDirection: {
-      type: Number,
-      required: true
+      type: Number
+      //required: true
     },
     humidity: {
       type: Number,
       required: true
     }
+  },
+  components: {
+    CloudCover,
+    Humidity,
+    Wind
   }
 }
 </script>
