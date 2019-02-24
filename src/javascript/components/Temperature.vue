@@ -1,15 +1,24 @@
 <template>
-  <v-container fill-heigh text-xs-center >
+  <v-container fill-height text-xs-center >
     <v-layout row align-center>
 
-      <v-flex xs6 text-xs-right>
-        <p class="headline">
-          {{ temperature }}&deg;
+      <v-flex class="pr-1"
+              text-xs-right
+              xs6>
+        <p class="display-3">
+          {{ (scaleSymbol === 'C')? temperature : fahrenValue }}
         </p>
       </v-flex>
 
-      <v-flex xs6 text-xs-left>
-        
+      <v-flex class="pl-1"
+              text-xs-left
+              xs6>
+
+        <a class="title black--text" href="#"
+          @click.prevent="toggleTemperature">
+          &deg;{{ scaleSymbol }}
+        </a>
+
         <temp-high />
         <p class="subheading">
           {{ tempHigh }}&deg;
@@ -55,18 +64,18 @@ export default {
       return this.scale.charAt(0);
     },
     fahrenValue() {
-      return this.toFahrenheit(this.value);
+      return this.toFahrenheit(this.temperature);
     },
     fahrenHigh() {
-      return this.toFahrenheit(this.high);
+      return this.toFahrenheit(this.tempHigh);
     },
     fahrenLow() {
-      return this.toFahrenheight(this.low);
+      return this.toFahrenheight(this.tempLow);
     }
   },
   methods: {
-    toFahrenheit(value) {
-      return Math.floor((value * 1.8) + 32);
+    toFahrenheit(temperature) {
+      return Math.floor((temperature * 1.8) + 32);
     },
     toggleTemp() {
       (this.scale === 'Celcius')? this.scale = 'Fahrenheit' : this.scale = 'Celcius';
@@ -78,3 +87,13 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+p.subheading {
+  margin-bottom: 0;
+}
+
+a.title {
+  text-decoration: none;
+}
+</style>

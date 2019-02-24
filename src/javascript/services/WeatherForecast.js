@@ -19,6 +19,7 @@ class WeatherForecast {
 
     this.location = '';
     this.description = 'Connect to the internet to get your local weather forecast.';
+    this.weatherIcon = require('public/icons/weather/cloud.svg');
 
     this.update();
   }
@@ -86,11 +87,12 @@ class WeatherForecast {
     this.windSpeed = data.wind.speed;
     this.windDirection = data.wind.deg;
     this.humidity = data.main.humidity;
-    this.temperature = data.main.temp;
+    this.temperature = Math.round(data.main.temp);
     this.tempHigh = data.main.temp_max;
     this.tempLow = data.main.temp_min;
     this.location = this.formatLocation(data.name, data.sys.country);
     this.description = data.weather[0].description;
+    this.weatherIcon = this.getWeatherIcon(data.weather[0].id);
   };
 
 

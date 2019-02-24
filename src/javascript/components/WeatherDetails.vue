@@ -2,9 +2,13 @@
   <v-container>
     <v-layout row justify-space-around>
      <v-flex xs4>
-       <p>
-         Details
+       <p class="title">
+         {{ location }}
        </p>
+       <p class="subheading">
+         {{ description }}
+       </p>
+       <img :src="icon" :alt="description">
      </v-flex>
     </v-layout>
   </v-container>
@@ -12,6 +16,17 @@
 
 <script>
 export default {
-  name: 'WeatherDetails'
+  name: 'WeatherDetails',
+  props: {
+    location: {
+      type: String,
+      required: true
+    },
+    description: {
+      type: String,
+      required: true
+    },
+    icon: {}
+  }
 }
 </script>

@@ -15,7 +15,9 @@
                        :tempHigh="this.forecast.tempHigh"
                        :tempLow="this.forecast.tempLow" />
 
-          <weather-details />
+          <weather-details :location="this.forecast.location"
+                           :description="this.forecast.description"
+                           :icon="this.forecast.weatherIcon"/>
 
         </v-card>
       </v-flex>
@@ -53,7 +55,7 @@ export default {
 }
 
 svg.forecast-icon {
-  height: 5em;
-  width: 5em;
+  height: 3em;
+  width: 3em;
 }
 </style>

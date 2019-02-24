@@ -1,21 +1,21 @@
 <template>
-  <v-container>
+  <v-container class="pa-0">
     <v-layout row justify-space-around>
      <v-flex xs3>
        <cloud-cover class="forecast-icon" />
-       <span class="headline">
+       <span class="subheading">
          {{ cloudCover }}&percnt;
        </span>
      </v-flex>
      <v-flex xs5>
        <wind class="forecast-icon" />
-       <span class="headline">
+       <span class="subheading">
          {{ windSpeed }}m/s
        </span>
      </v-flex>
      <v-flex xs3>
        <humidity class="forecast-icon" />
-       <span class="headline">
+       <span class="subheading">
          {{ humidity }}&percnt;
        </span>
      </v-flex>
