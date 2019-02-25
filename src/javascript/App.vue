@@ -1,13 +1,13 @@
 <template>
-  <v-app>
-    <v-toolbar text-xs-center>
-      <p class="blue--text display-1" :title="title">
+  <v-app dark>
+    <v-toolbar>
+      <p class="display-1" :title="title">
         {{ this.title }}
       </p>
     </v-toolbar>
 
     <v-content>
-      <WeatherApp></WeatherApp>
+      <weather-app></weather-app>
     </v-content>
   </v-app>
 </template>
