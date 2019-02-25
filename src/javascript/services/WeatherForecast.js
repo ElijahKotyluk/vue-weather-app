@@ -19,7 +19,7 @@ class WeatherForecast {
 
     this.location = '';
     this.description = 'Connect to the internet to get your local weather forecast.';
-    this.weatherIcon = require('public/icons/weather/cloud.svg');
+    this.weatherCode = 0;
 
     this.update();
   }
@@ -88,11 +88,11 @@ class WeatherForecast {
     this.windDirection = data.wind.deg;
     this.humidity = data.main.humidity;
     this.temperature = Math.round(data.main.temp);
-    this.tempHigh = data.main.temp_max;
-    this.tempLow = data.main.temp_min;
+    this.tempHigh = Math.round(data.main.temp_max);
+    this.tempLow = Math.round(data.main.temp_min);
     this.location = this.formatLocation(data.name, data.sys.country);
     this.description = data.weather[0].description;
-    this.weatherIcon = this.getWeatherIcon(data.weather[0].id);
+    this.weatherCode = data.weather[0].id;
   };
 
 
@@ -103,42 +103,6 @@ class WeatherForecast {
       };
 
       return `${city}, ${country}`;
-  };
-
-  // @param {Number} id - Weather ID.
-  getWeatherIcon(id) {
-      if(this.isThunderstorm(id)) {
-          return require('public/icons/weather/thunderstorm.svg');
-      }
-
-      if(this.isDrizzle(id) || this.isRain(id)) {
-          return require('public/icons/weather/rain.svg');
-      }
-
-      if(this.isSnow(id)) {
-          return require('public/icons/weather/snow.svg');
-      }
-
-      return require('public/icons/weather/cloud.svg');
-  }
-
-  // @param {Number} id - WeatherID.
-  isThunderstorm(id) {
-    return id > 199 && id < 233
-  }
-  // @param {Number} id - Weather ID.
-  isDrizzle(id) {
-      return id > 299 && id < 322;
-  };
-
-  // @param {Number} id - Weather ID.
-  isRain(id) {
-      return id > 499 && id < 532;
-  };
-
-  // @param {Number} id - Weather ID.
-  isSnow(id) {
-      return id > 599 && id < 623;
   };
 }
 

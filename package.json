@@ -26,11 +26,11 @@
     "nodemon": "^1.18.9",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
+    "vue-loader": "^15.5.1",
     "vue-svg-loader": "^0.12.0",
     "vue-template-compiler": "^2.6.6",
     "webpack": "^4.28.4",
     "webpack-cli": "^3.2.1",
-    "webpack-dev-server": "^3.1.14",
-    "vue-loader": "^15.5.1"
+    "webpack-dev-server": "^3.1.14"
   }
 }

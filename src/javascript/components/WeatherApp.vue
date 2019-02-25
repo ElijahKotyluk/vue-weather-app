@@ -1,11 +1,18 @@
 <template>
-  <v-container fill-height fluid>
-    <v-layout row align-center>
-      <v-flex class="text-xs-center" offset-xs4>
-        <v-card class="text-xs-center"
-                color="blue-grey"
-                elevation="8"
-                width="50%">
+  <v-container color="blue"
+               fill-height
+               fluid>
+
+    <v-layout row
+              flex
+              align-center
+              justify-center>
+
+        <v-card class="text-xs-center darken-1"
+                color="grey"
+                elevation="12"
+                width="350px"
+                min-height="525px">
 
           <forecast :cloudCover="this.forecast.cloudCover"
                     :windSpeed="this.forecast.windSpeed"
@@ -17,10 +24,9 @@
 
           <weather-details :location="this.forecast.location"
                            :description="this.forecast.description"
-                           :icon="this.forecast.weatherIcon"/>
-
+                           :weatherCode="this.forecast.weatherCode"/>
         </v-card>
-      </v-flex>
+
     </v-layout>
   </v-container>
 </template>
@@ -48,6 +54,9 @@ export default {
 </script>
 
 <style lang="scss">
+.v-card {
+  color: rgba(255, 255, 255, .6) !important;
+}
 
 .row {
   width: 100%;
