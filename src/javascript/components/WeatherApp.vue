@@ -33,6 +33,7 @@
 
 <script>
 import WeatherForecast from '../services/WeatherForecast';
+import FiveDayForecast from '../services/FiveDayForecast';
 
 import Forecast from './Forecast.vue';
 import Temperature from './Temperature.vue';
@@ -42,7 +43,8 @@ export default {
   name: 'WeatherApp',
   data () {
     return {
-      forecast: new WeatherForecast
+      forecast: new WeatherForecast,
+      fiveDay: new FiveDayForecast
     }
   },
   components: {
