@@ -1,34 +1,41 @@
 <template>
   <v-container fill-height text-xs-center >
-    <v-layout row align-center>
+    <v-layout class="ml-5"
+              align-center
+              row>
 
       <v-flex class="pr-1"
               text-xs-right
               xs6>
-        <p class="display-3">
+        <p class="display-4 mb-0 mt-3">
           {{ (scaleSymbol === 'C')? temperature : fahrenValue }}
         </p>
       </v-flex>
 
-      <v-flex class="pl-1"
+      <div class="pl-1 temp-right"
               text-xs-left
               xs6>
 
-        <a class="title black--text" href="#"
-          @click.prevent="toggleTemperature">
-          &deg;{{ scaleSymbol }}
+        <a @click.prevent="toggleTemperature"
+            class="display-1 mr-5"
+            href="#">
+              &deg;{{ scaleSymbol }}
         </a>
 
-        <temp-high />
-        <p class="subheading">
-          {{ tempHigh }}&deg;
-        </p>
+        <div class="temp-high">
+          <temp-high />
+          <p class="subheading">
+            {{ (scaleSymbol === 'C')? tempHigh : fahrenHigh }}&deg;
+          </p>
+        </div>
 
-        <temp-low />
-        <p class="subheading">
-          {{ tempLow }}&deg;
-        </p>
-      </v-flex>
+        <div class="temp-low" row>
+          <temp-low />
+          <p class="subheading">
+            {{ (scaleSymbol === 'C')? tempLow : fahrenLow }}&deg;
+          </p>
+        </div>
+      </div>
 
     </v-layout>
   </v-container>
@@ -70,14 +77,14 @@ export default {
       return this.toFahrenheit(this.tempHigh);
     },
     fahrenLow() {
-      return this.toFahrenheight(this.tempLow);
+      return this.toFahrenheit(this.tempLow);
     }
   },
   methods: {
     toFahrenheit(temperature) {
       return Math.floor((temperature * 1.8) + 32);
     },
-    toggleTemp() {
+    toggleTemperature() {
       (this.scale === 'Celcius')? this.scale = 'Fahrenheit' : this.scale = 'Celcius';
     }
   },
@@ -93,7 +100,26 @@ p.subheading {
   margin-bottom: 0;
 }
 
-a.title {
+a.display-1 {
   text-decoration: none;
+  color: inherit;
 }
+
+a:hover {
+  color: rgba(255, 255, 255, 1)
+}
+
+
+.temp-right {
+  display: flex;
+  flex-direction: column;
+}
+div.temp-high {
+  display: flex;
+}
+
+div.temp-low {
+  display: flex;
+}
+
 </style>
