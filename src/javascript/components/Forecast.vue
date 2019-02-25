@@ -1,19 +1,19 @@
 <template>
-  <v-container class="pa-0">
+  <v-container class="pa-0 mt-2">
     <v-layout row justify-space-around>
-     <v-flex xs3>
+     <v-flex xs4 class="forecast-item">
        <cloud-cover class="forecast-icon" />
        <span class="subheading">
          {{ cloudCover }}&percnt;
        </span>
      </v-flex>
-     <v-flex xs5>
+     <v-flex xs4 class="forecast-item">
        <wind class="forecast-icon" />
        <span class="subheading">
          {{ windSpeed }}m/s
        </span>
      </v-flex>
-     <v-flex xs3>
+     <v-flex xs4 class="forecast-item">
        <humidity class="forecast-icon" />
        <span class="subheading">
          {{ humidity }}&percnt;
@@ -55,3 +55,15 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+.forecast-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  span.subheading {
+    margin-left: 12px;
+  }
+}
+</style>
