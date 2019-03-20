@@ -2,10 +2,10 @@
   <v-container>
     <v-layout row justify-space-around>
      <v-flex xs4>
-       <p class="title">
+       <p class="title font-weight-bold">
          {{ location }}
        </p>
-       <p class="subheading">
+       <p class="subheading font-weight-bold">
          {{ description }}
        </p>
 
@@ -16,10 +16,10 @@
 </template>
 
 <script>
-import Rain from 'public/icons/weather/rain.svg';
-import Snow from 'public/icons/weather/snow.svg';
-import Cloud from 'public/icons/weather/cloud.svg';
-import Thunderstorm from 'public/icons/weather/thunderstorm.svg';
+import Rain from 'public/icons/weather/rain.svg?inline';
+import Snow from 'public/icons/weather/snow.svg?inline';
+import Cloud from 'public/icons/weather/cloud.svg?inline';
+import Thunderstorm from 'public/icons/weather/thunderstorm.svg?inline';
 
 export default {
   name: 'WeatherDetails',

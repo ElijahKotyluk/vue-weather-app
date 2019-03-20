@@ -42,8 +42,8 @@
 </template>
 
 <script>
-import TempHigh from 'public/icons/temphigh.svg';
-import TempLow from 'public/icons/templow.svg';
+import TempHigh from 'public/icons/temphigh.svg?inline';
+import TempLow from 'public/icons/templow.svg?inline';
 
 export default {
   name: 'Temperature',

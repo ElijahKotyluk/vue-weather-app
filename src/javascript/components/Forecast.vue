@@ -1,5 +1,5 @@
 <template>
-  <v-container class="pa-0 mt-2">
+  <v-container class="pa-0 pt-2 mt-2">
     <v-layout row justify-space-around>
      <v-flex xs4 class="forecast-item">
        <cloud-cover class="forecast-icon" />
@@ -24,9 +24,9 @@
 </template>
 
 <script>
-import CloudCover from 'public/icons/cloudcover.svg';
-import Humidity from 'public/icons/humidity.svg';
-import Wind from 'public/icons/wind.svg';
+import CloudCover from 'public/icons/cloudcover.svg?inline';
+import Humidity from 'public/icons/humidity.svg?inline';
+import Wind from 'public/icons/wind.svg?inline';
 
 export default {
   name: 'Forecast',

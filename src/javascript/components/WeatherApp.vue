@@ -8,7 +8,7 @@
               align-center
               justify-center>
 
-        <v-card class="text-xs-center darken-1"
+        <v-card class="text-xs-center darken-1 background-image"
                 color="grey"
                 elevation="12"
                 width="350px"
@@ -33,7 +33,9 @@
 
 <script>
 import WeatherForecast from '../services/WeatherForecast';
-import FiveDayForecast from '../services/FiveDayForecast';
+
+import day from 'public/icons/card/day.svg';
+import night from 'public/icons/card/night.svg';
 
 import Forecast from './Forecast.vue';
 import Temperature from './Temperature.vue';
@@ -43,8 +45,7 @@ export default {
   name: 'WeatherApp',
   data () {
     return {
-      forecast: new WeatherForecast,
-      fiveDay: new FiveDayForecast
+      forecast: new WeatherForecast
     }
   },
   components: {

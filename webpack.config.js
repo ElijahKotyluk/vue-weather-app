@@ -1,8 +1,9 @@
 // Import necessary modules for config.
-const path = require('path')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const path = require('path');
 const Dotenv = require('dotenv-webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 module.exports = {
   entry: [
@@ -46,7 +47,7 @@ module.exports = {
       },
       {
         test: /\.svg$/,
-        loader: 'vue-svg-loader',
+        loader: 'vue-svg-loader'
       }
     ]
   },
@@ -59,11 +60,15 @@ module.exports = {
     }
   },
   plugins: [
+    new Dotenv(),
     new ExtractTextPlugin({
       filename: 'index.bundle.css',
       allChunks: true
   }),
-    new VueLoaderPlugin(),
-    new Dotenv()
+    new HtmlWebpackPlugin({
+      template: 'template.html',
+      inject: 'body'
+    }),
+    new VueLoaderPlugin()
   ]
 }
